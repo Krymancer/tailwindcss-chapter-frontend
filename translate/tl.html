@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black">
+    <template id="card-template">
+        <div class="basis-[calc(33.33333%_-_30px)] mx-[15px] mb-[30px] rounded-[28px] overflow-hidden">
+            <a href="#" class="block bg-[#121212] py-[30px] px-[30px] overflow-hidden relative hover:text-white hover:no-underline group rounded-[28px]">
+            <div id="circle" class="h-[128px] w-[128px] bg-[#f9b234] z-[1] absolute top-[-75px] right-[-75px] rounded-full transition-all duration-[.5s] ag-courses-item_bg group-hover:scale-[10]"></div>
+    
+            <div id="title" class="min-h-[120px] mb-[25px] overflow-hidden font-bold text-[30px] text-white z-[2] relative">
+                UI/Web&Graph design for teenagers 11-17 years old
+            </div>
+    
+            <div class="text-[18px] text-white z-[2] relative">
+                Start:
+                <span id="date" class="font-bold text-[#f9b234] transition-colors duration-[.5s] ag-courses-item_date group-hover:text-white">
+                04.11.2022
+                </span>
+            </div>
+            </a>
+        </div>
+    </template>
+
+    <div class="w-[1142px] mx-auto">
+        <div  id="content" class="flex items-star flex-wrap py-[50px]">
+        
+      </div>
+</body>
+
+<script>
+    const items = [
+        {
+            title: 'UI/Web&Graph design for teenagers 11-17 years old',
+            date: '04.11.2022',
+            color: '#f9e2af',
+        },
+        {
+            title: 'UX/UI Web-Design + Mobine Design',
+            date: '04.11.2022',
+            color: '#a6e3a1',
+        },
+        {
+            title: 'Annual package "Product+UX/UI+Graph designer 2022"',
+            date: '04.11.2022',
+            color: '#fab387',
+        },
+        {
+            title: 'Graphic Design',
+            date: '04.11.2022',
+            color: '#f5c2e7',
+        },
+        {
+            title: 'Motion Design',
+            date: '04.11.2022',
+            color: '#89b4fa',
+        },
+        {
+            title: 'Front-end development + jQuery + CMS',
+            date: '04.11.2022',
+            color: '#94e2d5',
+        },
+        {
+            title: 'Digital Marketing',
+            date: '04.11.2022',
+            color: '#94e2d5',
+        },
+        {
+            title: 'Interior Design',
+            date: '04.11.2022',
+            color: '#f2cdcd',
+        },
+    ];
+
+    function getCard(title, date, color) {
+        const template = document.getElementById("card-template");
+
+        const newCard = template.content.cloneNode(true);
+
+        newCard.querySelector("#title").innerHTML = title;
+        newCard.querySelector("#circle").style.background = color;
+        newCard.querySelector("#date").style.color = color;
+
+        document.body.querySelector("#content").appendChild(newCard);
+    }
+
+    items.forEach(item => getCard(item.title, item.date, item.color));
+</script>
+</html>
